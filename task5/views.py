@@ -33,8 +33,10 @@ def sign_up_by_django(request):
     }
     info = {
     }
+    form = ContactForm()
     if request.method == "POST":
         form = ContactForm(request.POST)
+
         if form.is_valid():
             username = form.cleaned_data("username")
             password = form.cleaned_data("password")
@@ -49,7 +51,4 @@ def sign_up_by_django(request):
                 info['error'] = 'Вы должны быть старше 18'
             elif username in users:
                 info['error'] = 'Пользователь уже существует'
-        else:
-            form = ContactForm()
-
-        return render(request, 'fifth_task/registration_page.html', {'form': form})
+    return render(request, 'fifth_task/registration_page.html', {'form': form})

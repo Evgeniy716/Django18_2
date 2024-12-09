@@ -3,7 +3,7 @@ from django.urls import path
 from task2.views import task2_func_view, ViewByClass
 from task3.views import *
 from task4.views import *
-from task5.views import sign_up_by_html,sign_up_by_django
+from task5.views import sign_up_by_django, sign_up_by_html
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('func_view/', task2_func_view),
