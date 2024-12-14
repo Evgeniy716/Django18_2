@@ -12,7 +12,7 @@ urlpatterns = [
     path('platform/games/', game),
     path('platform/cart/', cart),
     path('', sign_up_by_html),
-    path('', sign_up_by_django)
+    # path('', sign_up_by_django)
 ]
 
 

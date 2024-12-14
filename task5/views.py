@@ -27,28 +27,28 @@ def sign_up_by_html(request):
 
     return render(request, 'fifth_task/registration_page.html', context=info)
 
-def sign_up_by_django(request):
-    users = {
-        'Ivan2': 'Ivan1999','Petr2': 'Petya2005'
-    }
-    info = {
-    }
-    form = ContactForm()
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-
-        if form.is_valid():
-            username = form.cleaned_data("username")
-            password = form.cleaned_data("password")
-            repeat_password = form.cleaned_data("repeat_password")
-            age = form.cleaned_data("age")
-
-            if password == repeat_password and int(age) >= 18 and username not in users:
-                return HttpResponse(f"Приветствуем, {username}!")
-            elif password != repeat_password:
-                info['error'] = 'Пароли не совпадают'
-            elif int(age) < 18:
-                info['error'] = 'Вы должны быть старше 18'
-            elif username in users:
-                info['error'] = 'Пользователь уже существует'
-    return render(request, 'fifth_task/registration_page.html', {'form': form})
+# def sign_up_by_django(request):
+#     users = {
+#         'Ivan2': 'Ivan1999','Petr2': 'Petya2005'
+#     }
+#     info = {
+#     }
+#     form = ContactForm()
+#     if request.method == "POST":
+#         form = ContactForm(request.POST)
+#
+#         if form.is_valid():
+#             username = form.cleaned_data("username")
+#             password = form.cleaned_data("password")
+#             repeat_password = form.cleaned_data("repeat_password")
+#             age = form.cleaned_data("age")
+#
+#             if password == repeat_password and int(age) >= 18 and username not in users:
+#                 return HttpResponse(f"Приветствуем, {username}!")
+#             elif password != repeat_password:
+#                 info['error'] = 'Пароли не совпадают'
+#             elif int(age) < 18:
+#                 info['error'] = 'Вы должны быть старше 18'
+#             elif username in users:
+#                 info['error'] = 'Пользователь уже существует'
+#     return render(request, 'fifth_task/registration_page.html', {'form': form})
